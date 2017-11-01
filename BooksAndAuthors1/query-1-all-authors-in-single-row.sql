@@ -5,7 +5,7 @@ SELECT
     COUNT(*) as AuthorsCount,
     GROUP_CONCAT(
         DISTINCT A.Name
-        ORDER BY R.Priority DESC 
+        ORDER BY R.Priority ASC 
         SEPARATOR ', '
     )
     as AuthorsList
@@ -17,4 +17,5 @@ INNER JOIN Authors as A
     ON R.AuthorID = A.ID
 GROUP BY
     R.BookID;
+
 
