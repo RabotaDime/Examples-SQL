@@ -57,9 +57,9 @@ INSERT INTO R_BooksToAuthors (BookID, AuthorID, Priority) VALUES
     (10, 1, 0),
     (20, 2, 1),
     (20, 3, 2),
-    (30, 4, 1),
-    (30, 5, 0),
-    (30, 6, 0),
+    (30, 4, 3),
+    (30, 5, 2),
+    (30, 6, 1),
     (40, 7, 1),
     (40, 8, 2),
     (40, 9, 3),
@@ -74,7 +74,7 @@ SELECT
     COUNT(*) as AuthorsCount,
     GROUP_CONCAT(
         DISTINCT A.Name
-        ORDER BY R.Priority DESC 
+        ORDER BY R.Priority ASC 
         SEPARATOR ', '
     )
     as AuthorsList
@@ -95,7 +95,7 @@ SELECT
     COUNT(*) as AuthorsCount,
     GROUP_CONCAT(
         DISTINCT A.Name
-        ORDER BY R.Priority DESC 
+        ORDER BY R.Priority ASC 
         SEPARATOR ', '
     )
     as AuthorsList
@@ -109,4 +109,5 @@ GROUP BY
     R.BookID
 HAVING
     AuthorsCount = 3;
+
 
