@@ -28,3 +28,17 @@ as Q1
 GROUP BY
     ArrayDifference;
 
+	
+-- Выборка отсутствующих промежутков
+
+SELECT GapStart, GapEnd FROM (
+    SELECT
+        T.ID as GapStart,
+        @NextValue := (SELECT MIN(Q1.ID) FROM T as Q1 WHERE Q1.ID > T.ID) as GapEnd,
+        @NextValue - T.ID > 1 as GapFlag
+    FROM
+        T
+)
+as Q2
+WHERE GapFlag;
+
