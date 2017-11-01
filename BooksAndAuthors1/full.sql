@@ -1,4 +1,4 @@
--- Книги
+-- РљРЅРёРіРё
 CREATE TABLE Books
 (
     ID int unsigned NOT NULL AUTO_INCREMENT,
@@ -16,7 +16,7 @@ INSERT INTO Books (ID, Name) VALUES
 ;
 
 
--- Авторы
+-- РђРІС‚РѕСЂС‹
 CREATE TABLE Authors
 (
     ID int unsigned NOT NULL AUTO_INCREMENT,
@@ -40,7 +40,7 @@ INSERT INTO Authors (Name) VALUES
 ;
 
 
--- Связи между книгами и авторами 
+-- РЎРІСЏР·Рё РјРµР¶РґСѓ РєРЅРёРіР°РјРё Рё Р°РІС‚РѕСЂР°РјРё 
 CREATE TABLE R_BooksToAuthors
 (
     ID int unsigned NOT NULL AUTO_INCREMENT,
@@ -67,7 +67,7 @@ INSERT INTO R_BooksToAuthors (BookID, AuthorID, Priority) VALUES
 ;
 
 
--- Перечисление всех авторов у книги в одной строке
+-- РџРµСЂРµС‡РёСЃР»РµРЅРёРµ РІСЃРµС… Р°РІС‚РѕСЂРѕРІ Сѓ РєРЅРёРіРё РІ РѕРґРЅРѕР№ СЃС‚СЂРѕРєРµ
 SELECT
     R.BookID,
     B.Name,
@@ -88,7 +88,7 @@ GROUP BY
     R.BookID;
 
 
--- Вывод книг с определенным числом авторов
+-- Р’С‹РІРѕРґ РєРЅРёРі СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј С‡РёСЃР»РѕРј Р°РІС‚РѕСЂРѕРІ
 SELECT
     R.BookID,
     B.Name,
